@@ -1,6 +1,13 @@
-- hosts: all
+- hosts: servera
   tasks:
   - name: install the latest version of Apache
     yum:
       name: httpd
+      state: latest
+
+- hosts: serverb
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: telnet
       state: latest
