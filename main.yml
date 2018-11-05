@@ -1,6 +1,4 @@
-- hosts: all
-  remote_user: root
-  tasks:
+- tasks:
   - name: install the latest version of Apache
     yum:
       name: httpd
