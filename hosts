@@ -1,5 +1,13 @@
 [servera]
 192.168.0.100
 
+[servera:vars]
+ansible_user=root
+ansible_ssh_pass=455452x
+
 [serverb]
 192.168.0.101
+
+[serverb:vars]
+ansible_user=root
+ansible_ssh_pass=455452x
