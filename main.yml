@@ -5,7 +5,7 @@
       name: httpd
       state: latest
 
-- hosts: servera
+- hosts: serverb
   tasks:
   - name: install the latest version of telnet
     yum:
