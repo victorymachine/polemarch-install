@@ -9,6 +9,10 @@
     url: https://github.com/vstconsulting/polemarch/releases/download/0.2.1/polemarch-0.2.1-0.x86_64.rpm
     dest: /tmp/
 
+  - name: install polemarch
+    yum:
+      name: /tmp/polemarch-0.2.1-0.x86_64.rpm
+
   - name: enable polemarch
     systemd:
       name: polemarchweb.service
