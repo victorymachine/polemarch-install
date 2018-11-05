@@ -1,13 +1,24 @@
 - hosts: servera
   tasks:
-  - name: install the latest version of Apache
+  - name: install wget
     yum:
-      name: httpd
+      name: wget
       state: latest
 
-- hosts: serverb
-  tasks:
-  - name: install the latest version of telnet
-    yum:
-      name: telnet
-      state: latest
+  - name: download polemarch rpm file
+    url: https://github.com/vstconsulting/polemarch/releases/download/0.2.1/polemarch-0.2.1-0.x86_64.rpm
+    dest: /tmp/
+
+  - name: enable polemarch
+    systemd:
+      name: polemarchweb.service
+      state: started
+      enable: yes
+
+  - name: Allow http/https
+    command: firewall-cmd --zone=public --permanent --add-port=8080/tcp
+
+  - name: Reload firewall
+    command: firewall-cmd --reload
+
+
